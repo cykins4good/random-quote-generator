@@ -1,3 +1,4 @@
+<script>
 var quoteContentString = "";
 var quoteAuthorString = "";
 
@@ -36,3 +37,4 @@ $(document).ready(function() {
     window.open( "https://twitter.com/intent/tweet?url=" + tweetedLink + "&text=" + quoteContentString + ' - ' + quoteAuthorString + "&via=jcsoriano18&", "twitterwindow", "height=450, width=550, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0" );
   });
 });
+</script>
