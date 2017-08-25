@@ -1,0 +1,74 @@
+body {
+  background-image: url("http://pic5.bbzhi.com/fengjingbizhi/jueduijingmeiziranfengguangbizhi/jueduijingmeiziranfengguangbizhi_442125_4.jpg");
+  font-family: Laustria;
+  font-weight: 400px;
+}
+
+h1,h3 {
+    color: #ffa500;
+}
+
+.quote-box {
+  font-size: 30px;
+  width: 600px;
+  height: auto;
+  background-color: white;
+  margin: 30px auto 30px auto;
+  padding: 30px;
+  display: block;
+  .quote-content {
+    width: 500px;
+    margin-right: 0px;
+    height: auto;
+    text-align: right;
+    font-size: 1.8em;
+    padding: 0;
+    .fa-quote-left {
+      width: 40px;
+      font-size: 2em;
+    }
+    .quote-text {
+      word-wrap: break-word;
+      margin-right: -10px;
+      width: 440px;
+    }
+  }
+  .quote-author {
+    width: 500px;
+    margin-top: 30px;
+    margin-right: -10px;
+    text-align: right;
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    clear: both;
+  }
+  .quote-controls {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 0px;
+    width: 500px;
+  }
+}
+
+.btn {
+  background-color: darkgray;
+  color: blue;
+  border: none;
+  border-radius: 2px;
+  &:hover {
+    color: black;
+    background-color: lightgray;
+  }
+}
+
+footer {
+  background-color: black;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 1px;
+
+}
