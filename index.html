@@ -4,6 +4,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<style>
+   body {
+  background-image: url("http://pic5.bbzhi.com/fengjingbizhi/jueduijingmeiziranfengguangbizhi/jueduijingmeiziranfengguangbizhi_442125_4.jpg");
+  font-family: Laustria;
+  font-weight: 400px;
+}
+
+h1,h3 {
+    color: #ffa500;
+}
+
+.quote-box {
+  font-size: 30px;
+  width: 600px;
+  height: auto;
+  background-color: white;
+  margin: 30px auto 30px auto;
+  padding: 30px;
+  display: block;
+  .quote-content {
+    width: 500px;
+    margin-right: 0px;
+    height: auto;
+    text-align: right;
+    font-size: 1.8em;
+    padding: 0;
+    .fa-quote-left {
+      width: 40px;
+      font-size: 2em;
+    }
+    .quote-text {
+      word-wrap: break-word;
+      margin-right: -10px;
+      width: 440px;
+    }
+  }
+  .quote-author {
+    width: 500px;
+    margin-top: 30px;
+    margin-right: -10px;
+    text-align: right;
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    clear: both;
+  }
+  .quote-controls {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 0px;
+    width: 500px;
+  }
+}
+
+.btn {
+  background-color: darkgray;
+  color: blue;
+  border: none;
+  border-radius: 2px;
+  &:hover {
+    color: black;
+    background-color: lightgray;
+  }
+}
+
+footer {
+  background-color: black;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 1px;
+}
+</style>
+
 <body>
   <div class='container text-center'>
     <div class='row'>
@@ -33,4 +109,45 @@
         <p>Developed and designed by Cypriano Akinwunmi</p>
       </footer>
     </div>
+       
+       <script>
+          var quoteContentString = "";
+var quoteAuthorString = "";
+
+function getQuoteFromJSON() {
+  $.ajax({
+      url: 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
+      success: function(data) {
+        var post = data[0];
+        
+        $('.author-name').text(post.title);
+        $('.quote-text').html(post.content);
+        
+        quoteContentString = $('.quote-text').find('p').text();
+        quoteAuthorString = post.title;
+        
+        
+        $('.btn-twitter').attr('href','https://twitter.com/home/?status=' + quoteContentString + ' - ' + quoteAuthorString);
+      },
+      cache: false
+   });
+}
+
+
+$(document).ready(function() {
+  getQuoteFromJSON();
+  
+  $(".btn-refresh-quote").on("click", function(event) { 
+    event.preventDefault();
+    getQuoteFromJSON();
+  });
+  
+  $(".btn-twitter").on("click", function(event) {
+    event.preventDefault();
+    var tweetedLink = this.getAttribute( "href" );
+
+    window.open( "https://twitter.com/intent/tweet?url=" + tweetedLink + "&text=" + quoteContentString + ' - ' + quoteAuthorString + "&via=jcsoriano18&", "twitterwindow", "height=450, width=550, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0" );
+  });
+});
+       </script>
     
